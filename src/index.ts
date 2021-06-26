@@ -1,1 +1,5 @@
-const abc = () => {};
+const abc = (): null => {
+  return null;
+};
+
+export { abc };
