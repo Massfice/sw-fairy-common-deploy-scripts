@@ -13,7 +13,7 @@
     "url": "git+https://github.com/Massfice/sw-fairy-common-deploy-scripts.git"
   },
   "keywords": [
-    "Gulp",
+    "gulp",
     "shonobi",
     "war",
     "fairy",
@@ -31,7 +31,13 @@
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
+    "husky": "^6.0.0",
     "prettier": "^2.3.2",
     "typescript": "^4.3.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
