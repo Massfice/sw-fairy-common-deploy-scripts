@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
-    "husky": "husky install"
+    "husky:init": "husky install && husky add .husky/pre-commit 'echo hello'"
   },
   "repository": {
     "type": "git",
@@ -35,10 +35,5 @@
     "husky": "^6.0.0",
     "prettier": "^2.3.2",
     "typescript": "^4.3.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo 'Hello from husky' && npm run lint"
-    }
   }
 }
