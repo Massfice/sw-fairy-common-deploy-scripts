@@ -1,5 +1,5 @@
-const abc = (): null => {
-  return null;
+const abc = (text: string): void => {
+  console.log(text);
 };
 
 export { abc };
