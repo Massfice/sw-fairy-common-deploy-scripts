@@ -1,4 +1,7 @@
-type InvokeFunction = () => void;
-type RegisterFunction = (name: string, invokeFunction: InvokeFunction) => void;
+import { TaskFunction, TaskFunctionWrapped } from 'undertaker';
 
-export { InvokeFunction, RegisterFunction };
+type KubernetessDeployFunction = (config: null) => TaskFunction | TaskFunctionWrapped;
+
+type PackageDeployFunction = (config: null) => TaskFunction | TaskFunctionWrapped;
+
+export { KubernetessDeployFunction, PackageDeployFunction };
