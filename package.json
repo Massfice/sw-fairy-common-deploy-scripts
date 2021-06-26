@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix"
+    "format": "eslint src/**/*.ts --fix",
+    "husky": "husky install"
   },
   "repository": {
     "type": "git",
