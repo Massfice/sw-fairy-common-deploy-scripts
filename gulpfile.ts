@@ -1,5 +1,10 @@
 import { deployPackage } from './src';
 
-const deploy = deployPackage(null);
+console.log(__dirname, process.env.NPM_TOKEN);
+
+const deploy = deployPackage({
+    npmToken: process.env.NPM_TOKEN,
+    dirname: __dirname,
+});
 
 export { deploy };

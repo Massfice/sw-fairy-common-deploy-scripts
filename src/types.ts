@@ -4,8 +4,13 @@ interface KubernetesDeployConfig {
     commitId: string;
 }
 
-type KubernetessDeployFunction = (config: null) => TaskFunction | TaskFunctionWrapped;
+interface PackageDeployConfig {
+    npmToken: string | undefined;
+    dirname: string;
+}
 
-type PackageDeployFunction = (config: null) => TaskFunction | TaskFunctionWrapped;
+type KubernetessDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
 
-export { KubernetessDeployFunction, PackageDeployFunction, KubernetesDeployConfig };
+type PackageDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
+
+export { KubernetessDeployFunction, PackageDeployFunction, KubernetesDeployConfig, PackageDeployConfig };

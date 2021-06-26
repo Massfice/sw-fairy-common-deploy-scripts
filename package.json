@@ -1,6 +1,6 @@
 {
     "name": "@massfice/sw-fairy-common-deploy-scripts",
-    "version": "1.0.2",
+    "version": "1.1.2",
     "description": "Common package for deploying microservices into production. Using typescript and gulp",
     "main": "dist/index.js",
     "scripts": {
@@ -8,6 +8,7 @@
         "lint": "eslint src/**/*.ts",
         "format": "eslint src/**/*.ts --fix",
         "husky:init": "husky install && husky add .husky/pre-commit 'npm run lint'",
+        "deploy": "gulp deploy",
         "prepare": "npm run build"
     },
     "repository": {
@@ -40,6 +41,8 @@
     },
     "dependencies": {
         "@types/gulp": "^4.0.8",
-        "gulp": "^4.0.2"
+        "@types/vinyl": "^2.0.4",
+        "gulp": "^4.0.2",
+        "vinyl": "^2.2.1"
     }
 }
