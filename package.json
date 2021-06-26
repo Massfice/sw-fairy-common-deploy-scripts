@@ -1,0 +1,37 @@
+{
+  "name": "@massfice/sw-fairy-common-deploy-scripts",
+  "version": "1.0.0",
+  "description": "Common package for deploying microservices into production. Using typescript and gulp",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Massfice/sw-fairy-common-deploy-scripts.git"
+  },
+  "keywords": [
+    "Gulp",
+    "shonobi",
+    "war",
+    "fairy",
+    "common",
+    "deploy",
+    "scripts"
+  ],
+  "author": "Massfice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Massfice/sw-fairy-common-deploy-scripts/issues"
+  },
+  "homepage": "https://github.com/Massfice/sw-fairy-common-deploy-scripts#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.4"
+  }
+}
