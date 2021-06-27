@@ -1,6 +1,6 @@
 {
     "name": "@massfice/sw-fairy-common-deploy-scripts",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Common package for deploying microservices into production. Using typescript and gulp",
     "main": "dist/index.js",
     "scripts": {
