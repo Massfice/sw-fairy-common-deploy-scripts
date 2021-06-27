@@ -7,6 +7,7 @@ jobs:
         steps:
             - checkout
             - run: sudo npm i gulp-cli -g
+            - run: npm i
             - run: gulp deploy --token $NPM_TOKEN
 
 workflows:
