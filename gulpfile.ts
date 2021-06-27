@@ -1,10 +1,7 @@
-import { deployPackage } from './src';
+import { deployPackage, configs } from './src';
 
-console.log(__dirname, process.env.NPM_TOKEN);
+const config = configs.package(__dirname);
 
-const deploy = deployPackage({
-    npmToken: process.env.NPM_TOKEN,
-    dirname: __dirname,
-});
+const deploy = deployPackage(config);
 
 export { deploy };

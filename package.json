@@ -42,7 +42,9 @@
     "dependencies": {
         "@types/gulp": "^4.0.8",
         "@types/vinyl": "^2.0.4",
+        "@types/yargs": "^17.0.0",
         "gulp": "^4.0.2",
-        "vinyl": "^2.2.1"
+        "vinyl": "^2.2.1",
+        "yargs": "^7.1.2"
     }
 }
