@@ -1,0 +1,50 @@
+{
+    "name": "@massfice/sw-fairy-common-deploy-scripts",
+    "version": "1.2.3",
+    "description": "Common package for deploying microservices into production. Using typescript and gulp",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc --build ts.config.json",
+        "lint": "eslint src/**/*.ts",
+        "format": "eslint src/**/*.ts --fix",
+        "husky:init": "husky install && husky add .husky/pre-commit 'npm run lint'",
+        "deploy": "gulp deploy",
+        "prepare": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Massfice/sw-fairy-common-deploy-scripts.git"
+    },
+    "keywords": [
+        "gulp",
+        "shonobi",
+        "war",
+        "fairy",
+        "common",
+        "deploy",
+        "scripts"
+    ],
+    "author": "Massfice",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Massfice/sw-fairy-common-deploy-scripts/issues"
+    },
+    "homepage": "https://github.com/Massfice/sw-fairy-common-deploy-scripts#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.28.0",
+        "@typescript-eslint/parser": "^4.28.0",
+        "eslint": "^7.29.0",
+        "husky": "^6.0.0",
+        "prettier": "^2.3.2",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.4"
+    },
+    "dependencies": {
+        "@types/gulp": "^4.0.8",
+        "@types/vinyl": "^2.0.4",
+        "@types/yargs": "^17.0.0",
+        "gulp": "^4.0.2",
+        "vinyl": "^2.2.1",
+        "yargs": "^7.1.2"
+    }
+}

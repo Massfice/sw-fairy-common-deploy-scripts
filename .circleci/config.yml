@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+    deploy:
+        docker:
+            - image: circleci/node:7.10
+        executor: docker/docker
+        steps:
+            - checkout
+            - run: npm i gulp-cli -g
+            - run: gulp deploy --token $NPM_TOKEN
+
+workflows:
+    version: 2
+    deploy:
+        jobs:
+            - deploy:
+                  context:
+                      - Shinobi War Fairy
+                  filters:
+                      branches:
+                          only:
+                              - main
