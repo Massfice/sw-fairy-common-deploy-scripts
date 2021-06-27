@@ -4,7 +4,6 @@ jobs:
     deploy:
         docker:
             - image: circleci/node:7.10
-        executor: docker/docker
         steps:
             - checkout
             - run: npm i gulp-cli -g
