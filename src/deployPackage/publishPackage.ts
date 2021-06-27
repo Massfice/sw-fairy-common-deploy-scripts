@@ -6,7 +6,7 @@ const publishPackage = (): Promise<boolean> => {
             resolve: (value: boolean | PromiseLike<boolean>) => void,
             reject: (error: childProcess.ExecException | string) => void,
         ) => {
-            childProcess.exec('npm publish"', (error) => {
+            childProcess.exec('npm publish', (error) => {
                 if (error) {
                     reject(error);
                 }
