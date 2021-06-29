@@ -13,7 +13,7 @@ interface PackageDeployConfig {
 type KubernetesConfigFunction = (dirname: string) => KubernetesDeployConfig;
 type PackageConfigFunction = (dirname: string) => PackageDeployConfig;
 
-type KubernetessDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
+type KubernetessDeployFunction = (config: KubernetesDeployConfig) => TaskFunction | TaskFunctionWrapped;
 type PackageDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
 
 export {

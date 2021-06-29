@@ -1,7 +1,10 @@
-import { deployPackage, configs } from './src';
+import { deployPackage, deployKubernetes, configs } from './src';
 
-const config = configs.package(__dirname);
+// const config = configs.package(__dirname);
 
-const deploy = deployPackage(config);
+const deploy = deployKubernetes({
+    commitId: '',
+    dirname: __dirname,
+});
 
 export { deploy };

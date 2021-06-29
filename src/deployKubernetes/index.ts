@@ -1,12 +1,14 @@
 import gulp from 'gulp';
 import { KubernetessDeployFunction } from '../types';
-
-const func = async (): Promise<void> => {
-    console.log('Deploy Kubernetes');
-};
+import prepareKubeFiles from './prepareKubeFiles';
+import buildDocker from './buildDocker';
+import pushDocker from './pushDocker';
+import appyKubeFiles from './applyKubeFiles';
 
 const invoke: KubernetessDeployFunction = () => {
-    return gulp.series(func);
+    const parallelJobs = gulp.parallel(prepareKubeFiles, buildDocker);
+
+    return gulp.series(parallelJobs, pushDocker, appyKubeFiles);
 };
 
 export default invoke;
