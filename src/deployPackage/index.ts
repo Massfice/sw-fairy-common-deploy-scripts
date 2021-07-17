@@ -4,15 +4,7 @@ import createNPMrc from './createNPMrc';
 import publishPackage from './publishPackage';
 
 const invoke: PackageDeployFunction = (config) => {
-    const prepare = async (): Promise<void> => {
-        if (!config.npmToken) {
-            return;
-        }
-
-        createNPMrc(config.npmToken).pipe(gulp.dest(config.dirname));
-    };
-
-    return gulp.series(prepare, publishPackage);
+    return gulp.series(createNPMrc(config), publishPackage());
 };
 
 export default invoke;

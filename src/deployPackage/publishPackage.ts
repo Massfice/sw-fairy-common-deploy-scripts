@@ -1,10 +1,10 @@
 import childProcess from 'child_process';
 
-const publishPackage = (): Promise<boolean> => {
+const publishPackage = () => (): Promise<boolean> => {
     return new Promise(
         (
             resolve: (value: boolean | PromiseLike<boolean>) => void,
-            reject: (error: childProcess.ExecException | string) => void,
+            reject: (error: childProcess.ExecException) => void,
         ) => {
             childProcess.exec('npm publish', (error) => {
                 if (error) {

@@ -5,10 +5,8 @@ import buildDocker from './buildDocker';
 import pushDocker from './pushDocker';
 import appyKubeFiles from './applyKubeFiles';
 
-const invoke: KubernetessDeployFunction = () => {
-    const parallelJobs = gulp.parallel(prepareKubeFiles, buildDocker);
-
-    return gulp.series(parallelJobs, pushDocker, appyKubeFiles);
+const invoke: KubernetessDeployFunction = (config) => {
+    return gulp.series(prepareKubeFiles(config), buildDocker(config), pushDocker(config), appyKubeFiles(config));
 };
 
 export default invoke;

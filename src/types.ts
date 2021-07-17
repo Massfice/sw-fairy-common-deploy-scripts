@@ -3,6 +3,7 @@ import { TaskFunction, TaskFunctionWrapped } from 'undertaker';
 interface KubernetesDeployConfig {
     commitId: string;
     dirname: string;
+    server: string;
 }
 
 interface PackageDeployConfig {
@@ -10,7 +11,7 @@ interface PackageDeployConfig {
     dirname: string;
 }
 
-type KubernetesConfigFunction = (dirname: string) => KubernetesDeployConfig;
+type KubernetesConfigFunction = (dirname: string, server: string) => KubernetesDeployConfig;
 type PackageConfigFunction = (dirname: string) => PackageDeployConfig;
 
 type KubernetessDeployFunction = (config: KubernetesDeployConfig) => TaskFunction | TaskFunctionWrapped;
