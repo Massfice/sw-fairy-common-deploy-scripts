@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import fs from 'fs';
 import path from 'path';
 import gulp from 'gulp';
 import Stream from 'stream';
@@ -11,7 +11,18 @@ const prepareKubeFiles = (config: KubernetesDeployConfig) => async (): Promise<S
     const stream = mergeStream();
     const { dirname, commitId } = config;
 
-    const files: string[] = await fs.readdir(path.join(dirname, 'kube'));
+    const files: string[] = await new Promise<string[]>(
+        (resolve: (value: string[]) => void, reject: (reason: NodeJS.ErrnoException) => void) => {
+            fs.readdir(path.join(dirname, 'kube'), (err: NodeJS.ErrnoException, files: string[]) => {
+                if (err) {
+                    reject(err);
+                }
+
+                resolve(files);
+            });
+        },
+    );
+
     const outputDir = path.join(__dirname, 'kubeprepared');
 
     files.forEach((file: string) => {
