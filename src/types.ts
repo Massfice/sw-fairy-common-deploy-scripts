@@ -3,6 +3,10 @@ import { TaskFunction, TaskFunctionWrapped } from 'undertaker';
 interface KubernetesDeployConfig {
     commitId: string;
     dirname: string;
+    server: string;
+    kubeToken: string;
+    dockerToken: string;
+    dockerImage: string;
 }
 
 interface PackageDeployConfig {
@@ -10,10 +14,10 @@ interface PackageDeployConfig {
     dirname: string;
 }
 
-type KubernetesConfigFunction = (dirname: string) => KubernetesDeployConfig;
+type KubernetesConfigFunction = (dirname: string, server: string, dockerImage: string) => KubernetesDeployConfig;
 type PackageConfigFunction = (dirname: string) => PackageDeployConfig;
 
-type KubernetessDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
+type KubernetessDeployFunction = (config: KubernetesDeployConfig) => TaskFunction | TaskFunctionWrapped;
 type PackageDeployFunction = (config: PackageDeployConfig) => TaskFunction | TaskFunctionWrapped;
 
 export {

@@ -1,12 +1,15 @@
 import childProcess from 'child_process';
+import { KubernetesDeployConfig } from '../types';
 
-const publishPackage = () => (): Promise<boolean> => {
+const buildDocker = (config: KubernetesDeployConfig) => async (): Promise<boolean> => {
+    const command = `docker build . --tag ${config.dockerImage}:${config.commitId}`;
+
     return new Promise(
         (
             resolve: (value: boolean | PromiseLike<boolean>) => void,
             reject: (error: childProcess.ExecException) => void,
         ) => {
-            childProcess.exec('npm publish', (error) => {
+            childProcess.exec(command, (error) => {
                 if (error) {
                     reject(error);
                 }
@@ -17,4 +20,4 @@ const publishPackage = () => (): Promise<boolean> => {
     );
 };
 
-export default publishPackage;
+export default buildDocker;
