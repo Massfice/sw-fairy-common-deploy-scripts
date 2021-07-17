@@ -2,7 +2,8 @@ import childProcess from 'child_process';
 import { KubernetesDeployConfig } from '../types';
 
 const appyKubeFiles = (config: KubernetesDeployConfig) => async (): Promise<boolean> => {
-    const command = `kubectl --kubeconfig=/dev/null --server=${config.server} --insecure-skip-tls-verify --token=$sw_fairy_k8s_token apply -f ./kubeprepared/`;
+    const command = `kubectl --kubeconfig=/dev/null --server=${config.server} --insecure-skip-tls-verify --token=${config.kubeToken} apply -f ./kubeprepared/`;
+
     return new Promise(
         (
             resolve: (value: boolean | PromiseLike<boolean>) => void,
