@@ -13,7 +13,7 @@ const prepareKubeFiles = (config: KubernetesDeployConfig) => async (): Promise<S
 
     const files: string[] = await new Promise<string[]>(
         (resolve: (value: string[]) => void, reject: (reason: NodeJS.ErrnoException) => void) => {
-            fs.readdir(path.join(dirname, 'kube'), (err: NodeJS.ErrnoException, files: string[]) => {
+            fs.readdir(path.join(dirname, 'kube'), (err: NodeJS.ErrnoException | null, files: string[]) => {
                 if (err) {
                     reject(err);
                 }
